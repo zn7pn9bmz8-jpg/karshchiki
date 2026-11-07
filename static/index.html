@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#101116">
+  <title>SkyRush</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header><div class="brand"><span class="brand-mark">✈</span> SKYRUSH</div><div class="tag">ARCADE MODE</div></header>
+    <section class="stats">
+      <div><small>ВИРТУАЛЬНЫЕ ОЧКИ</small><strong id="balance">1 000</strong></div>
+      <div class="right"><small>ЛУЧШИЙ РЕЗУЛЬТАТ</small><strong id="best">—</strong></div>
+    </section>
+    <section class="stage" id="stage">
+      <div class="aurora"></div>
+      <div class="moon"></div>
+      <div class="stars stars-a">✦　 ·　　 ✧　　 ·　 ✦</div>
+      <div class="stars stars-b">·　　 ✧　　 ·　　 ✦</div>
+      <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+      <div class="trail" id="trail"></div>
+      <div class="plane rocket" id="plane" aria-label="Ракета">
+        <svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="rocketBody" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff7f8"/>
+              <stop offset=".48" stop-color="#ff8192"/>
+              <stop offset="1" stop-color="#ef315c"/>
+            </linearGradient>
+            <linearGradient id="rocketFlame" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff3a6"/>
+              <stop offset=".55" stop-color="#ffad54"/>
+              <stop offset="1" stop-color="#ff526c" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M43 70 C34 83 38 92 48 99 C49 87 55 82 57 70Z"
+                fill="url(#rocketFlame)" opacity=".95"/>
+          <path d="M34 67 18 78 27 53Z" fill="#ff617c" stroke="#ffe3e8" stroke-width="2"/>
+          <path d="M66 67 82 78 73 53Z" fill="#e83d65" stroke="#ffe3e8" stroke-width="2"/>
+          <path d="M50 5 C31 23 27 47 34 69 L50 82 66 69 C73 47 69 23 50 5Z"
+                fill="url(#rocketBody)" stroke="#fff0f3" stroke-width="2.5"/>
+          <path d="M50 8 50 78" stroke="#fff" stroke-width="2" opacity=".25"/>
+          <circle cx="50" cy="43" r="9" fill="#243b61" stroke="#dff5ff" stroke-width="3"/>
+          <circle cx="47" cy="40" r="3" fill="#fff" opacity=".8"/>
+        </svg>
+      </div>
+      <div class="multiplier" id="multiplier">1.00x</div>
+      <div class="status" id="status">ГОТОВ К ПОЛЁТУ?</div>
+      <div class="stage-label">ВИРТУАЛЬНЫЙ АРКАДНЫЙ РЕЖИМ</div>
+    </section>
+    <section class="controls">
+      <div class="stake-row"><span>Игровая попытка</span><strong>50 очков</strong></div>
+      <button id="play" class="main-button">НАЧАТЬ ПОЛЁТ</button>
+      <button id="collect" class="collect-button" disabled>ЗАФИКСИРОВАТЬ ОЧКИ</button>
+      <p class="hint" id="hint">Очки виртуальные и не имеют денежной стоимости.</p>
+    </section>
+    <section class="history">
+      <div class="section-title">ПОСЛЕДНИЕ ПОЛЁТЫ <span>ИСТОРИЯ</span></div>
+      <div id="historyList" class="history-list"><span class="empty">Пока нет завершённых раундов</span></div>
+    </section>
+    <footer>SKYRUSH · ИГРА ДЛЯ РАЗВЛЕЧЕНИЯ · БЕЗ ДЕНЕЖНЫХ СТАВОК</footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
