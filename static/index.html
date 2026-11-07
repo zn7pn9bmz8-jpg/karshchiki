@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#101116">
+  <title>Авиатор</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header><div class="brand"><span class="brand-mark">〽️</span> АВИАТОР</div><div class="tag">desing by Тёма</div></header>
+    <section class="stats">
+      <div><small>Счёт в рублях:</small><strong id="balance">1 000</strong></div>
+      <div class="right"><small>ЛУЧШИЙ РЕЗУЛЬТАТ</small><strong id="best">—</strong></div>
+    </section>
+    <section class="stage" id="stage">
+      <div class="aurora"></div>
+      <div class="moon"></div>
+      <div class="stars stars-a">✦　 ·　　 ✧　　 ·　 ✦</div>
+      <div class="stars stars-b">·　　 ✧　　 ·　　 ✦</div>
+      <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+      <div class="trail" id="trail"></div>
+      <div class="plane" id="plane" aria-label="Самолёт">
+        <svg viewBox="0 0 120 80" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="planePaint" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff4f5"/>
+              <stop offset="0.48" stop-color="#ff8192"/>
+              <stop offset="1" stop-color="#ff3f68"/>
+            </linearGradient>
+          </defs>
+          <path d="M8 43 108 8 83 69 62 52 43 72 39 48Z"
+                fill="url(#planePaint)" stroke="#ffe2e7" stroke-width="2.2"
+                stroke-linejoin="round"/>
+          <path d="M39 48 108 8 62 52Z" fill="#fff" opacity=".22"/>
+          <path d="M8 43 39 48 62 52" fill="none" stroke="#fff4f5"
+                stroke-width="2" opacity=".7" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="multiplier" id="multiplier">1.00x</div>
+      <div class="status" id="status">ГОТОВ К ПОЛЁТУ?</div>
+      <div class="stage-label">НЕКОТОРЫЕ СЕРВИСЫ В РАЗРАБОТКЕ!</div>
+    </section>
+    <section class="controls">
+      <div class="stake-row"><span>Игровая попытка</span><strong>Ставка: 50 рублей</strong></div>
+      <button id="play" class="main-button">НАЧАТЬ ПОЛЁТ</button>
+      <button id="collect" class="collect-button" disabled>ЗАФИКСИРОВАТЬ ВЫИГРЫШ</button>
+      <p class="hint" id="hint">Вывод и пополнение счёта в разработке.</p>
+    </section>
+    <section class="history">
+      <div class="section-title">ПОСЛЕДНИЕ ПОЛЁТЫ <span>ИСТОРИЯ</span></div>
+      <div id="historyList" class="history-list"><span class="empty">Пока нет завершённых раундов</span></div>
+    </section>
+    <footer>АВИАТОР · ИГРА ДЛЯ РАЗВЛЕЧЕНИЯ · НЕ СТАВКИ И НЕ КАЗИНО</footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
