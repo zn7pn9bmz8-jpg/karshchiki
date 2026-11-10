@@ -5,3 +5,51 @@
 /* v3 profile, controls, promo and yard refinements */
 .profile-wrap{display:flex;align-items:center;gap:10px;min-width:0}.profile-name{border:0;background:transparent;color:#f1f5f5;font-size:16px;font-weight:800;letter-spacing:-.25px;padding:7px 0;max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}.top-actions{gap:17px}.sound-btn{border:0;background:transparent;color:#fff;font-size:30px;font-weight:900;line-height:1;width:38px;height:42px;padding:0;cursor:pointer;text-shadow:0 1px 0 #fff}.withdraw-btn{border:1px solid #70c7f2;border-radius:11px;background:transparent;color:#b9e8ff;font-size:10px;font-weight:1000;letter-spacing:.55px;padding:11px 13px;cursor:pointer}.score-line{display:flex;align-items:baseline;gap:6px;white-space:nowrap}.score-card .score-line strong{display:inline-block;margin:4px 0 0}.score-card .score-line small{display:inline-block;font-size:10px;letter-spacing:0;font-weight:700}.score-card{min-width:155px}.warehouse-row{grid-template-columns:repeat(3,minmax(0,1fr));left:5%;right:5%;gap:12px}.warehouse{position:relative}.warehouse:nth-child(1) .door{background:repeating-linear-gradient(90deg,#8db5bc 0 8px,#aac6c2 8px 14px);border-color:#5d818b}.warehouse:nth-child(2) .door{background:linear-gradient(135deg,#a9c5b7 25%,#86a6a3 25% 50%,#b6d0c4 50% 75%,#86a6a3 75%);background-size:22px 22px;border-color:#607d7d}.warehouse:nth-child(3) .door{background-color:#9bb8bd;background-image:linear-gradient(#6f9199 1px,transparent 1px),linear-gradient(90deg,#6f9199 1px,transparent 1px);background-size:12px 12px;border-color:#597b84}.warehouse:nth-child(1) .roof{background:#7b9ba2}.warehouse:nth-child(2) .roof{background:#91a99c}.warehouse:nth-child(3) .roof{background:#6d8c98}.arrival-badge{position:absolute;z-index:5;left:50%;top:9px;transform:translate(-50%,-5px);opacity:0;pointer-events:none;background:#172a35e8;border:1px solid #d6ef9a;color:#e7f9b5;border-radius:9px;padding:7px 12px;font-size:9px;font-weight:1000;letter-spacing:1px;white-space:nowrap;transition:.2s}.arrival-badge.show{opacity:1;transform:translate(-50%,0)}.forklift{width:140px;height:88px;bottom:0;left:3%;transition:left 2.7s cubic-bezier(.22,.7,.2,1)}.forklift svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 3px 2px #17252b65)}.forklift.moving{animation:bump .18s infinite alternate}.promo-card{margin-top:10px;padding:13px;background:linear-gradient(145deg,#1b2c3b,#152330);border:1px solid #354c5d;border-radius:16px}.promo-heading{display:flex;align-items:center;justify-content:space-between;color:var(--lime);font-size:10px;letter-spacing:1px;font-weight:1000}.promo-heading span{color:var(--blue);font-size:11px}.max-link{display:flex;align-items:center;justify-content:center;min-height:39px;border-radius:10px;background:linear-gradient(135deg,#2388ff,#1264d8);color:#fff;text-decoration:none;font-size:10px;font-weight:1000;margin:10px 0 9px}.promo-entry{display:flex;gap:8px}.promo-entry input{min-width:0;flex:1;border:1px solid #486174;background:#10202d;color:#fff;padding:11px 12px;border-radius:10px;font:inherit;font-size:12px;outline:none}.promo-entry input::placeholder{color:#91a4b1}.promo-apply{border:0;border-radius:10px;background:var(--lime);color:#1b2b31;padding:0 14px;font-size:9px;font-weight:1000;letter-spacing:.5px;cursor:pointer}.promo-message{font-size:11px;color:var(--lime);min-height:0;text-align:center;margin:7px 0 0}.promo-message:empty{display:none}.yard-status{font-size:8px}.how-card{margin-top:10px}
 @media(max-width:560px){.topbar{height:58px}.profile-wrap{gap:8px}.profile-avatar{width:39px;height:39px}.profile-name{font-size:15px;max-width:125px}.top-actions{gap:10px}.sound-btn{font-size:29px;width:31px}.withdraw-btn{font-size:9px;padding:9px 9px}.hero{padding:12px 1px 10px;align-items:center}.score-card{min-width:126px;padding:9px 10px}.score-card strong{font-size:23px}.score-card .score-line{gap:4px}.score-card .score-line small{font-size:9px}.yard{height:178px}.warehouse-row{top:53px;left:5%;right:5%;gap:8px}.door{height:49px}.warehouse label{font-size:7px}.ground{height:66px}.forklift{width:119px;height:76px;bottom:0}.arrival-badge{top:7px;font-size:8px;padding:6px 9px}.action-row{flex-direction:row;align-items:center}.selected-note{font-size:9px}.start-btn{width:auto;flex:0 0 auto;padding:11px 8px;font-size:8px}.promo-entry{gap:6px}.promo-apply{padding:0 10px;font-size:8px}.how-card p{font-size:9px}}
+
+/* v4: Renewal-inspired industrial campus, clean controls */
+:root{--blue:#a9dff0;--blue2:#65b8cf;--lime:#cde7a0;--line:#42606a}
+.sound-btn{display:grid;place-items:center;width:34px;height:38px;color:#fff}
+.sound-btn svg{width:29px;height:29px;fill:#fff;stroke:#fff;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round}
+.sound-btn svg .sound-wave{fill:none;stroke:#fff;stroke-width:2.7}
+.sound-btn svg .sound-slash{fill:none;stroke:#fff;stroke-width:3.4}
+.yard{background:linear-gradient(180deg,#b9dce5 0%,#dce9df 56%,#91aaa0 56%,#718a7d 100%)}
+.warehouse-row{top:43px;left:4%;right:4%;gap:10px;align-items:end}
+.warehouse{filter:drop-shadow(0 6px 3px #344b4930)}
+/* Tall, clean pharmaceutical-production buildings with glass and pale panels */
+.roof{height:13px;background:linear-gradient(180deg,#e8f0e8,#91b2b4);clip-path:none;border-radius:4px 4px 0 0;position:relative}
+.roof:before{content:"";position:absolute;left:8%;right:8%;top:3px;height:3px;background:#f7fbf4;border-radius:3px}
+.door{height:76px;position:relative;border:2px solid #6e9298;border-top:0;box-shadow:inset 0 0 0 4px #ffffff38}
+.door:before{content:"";position:absolute;left:9%;right:9%;top:7px;height:12px;border-radius:2px;background:#eaf5efb8;border:1px solid #ffffff80}
+.door:after{content:"";position:absolute;left:12%;right:12%;bottom:6px;height:32px;border:2px solid #e6f0e9a8;border-bottom:0;border-radius:3px 3px 0 0;background:linear-gradient(90deg,#7197a044 0 31%,transparent 31% 35%,#7197a044 35% 66%,transparent 66% 70%,#7197a044 70%)}
+.warehouse:nth-child(1) .roof{background:linear-gradient(#eaf1eb,#82aeb6)}
+.warehouse:nth-child(1) .door{background:repeating-linear-gradient(90deg,#9dc4ca 0 9px,#d4e4dd 9px 17px);border-color:#5d8790}
+.warehouse:nth-child(2) .roof{background:linear-gradient(#eef3e7,#a5b99c)}
+.warehouse:nth-child(2) .door{background:linear-gradient(135deg,#d9e7d8 0 24%,#91b2ad 24% 49%,#c4d8c6 49% 74%,#82a7a6 74%);background-size:30px 30px;border-color:#668a84}
+.warehouse:nth-child(3) .roof{background:linear-gradient(#edf4ed,#86aeb7)}
+.warehouse:nth-child(3) .door{background-color:#a8c8cb;background-image:linear-gradient(#6d99a0 1px,transparent 1px),linear-gradient(90deg,#6d99a0 1px,transparent 1px);background-size:13px 13px;border-color:#5d858d}
+.warehouse label{color:#284c51;font-size:8px;letter-spacing:.5px;font-weight:1000}
+.warehouse.target .door{box-shadow:0 0 24px #d5f28b;border-color:#b8d78d}
+.yard-status,.arrival-badge{display:none!important}
+.forklift{width:172px;height:103px;bottom:-1px;left:1%;}
+.forklift svg{filter:drop-shadow(0 5px 3px #17252b65)}
+.choice-grid{margin-top:12px}
+.choice{background:linear-gradient(145deg,#d7e9e4,#a9d4dd);border:1px solid #79aeb7;color:#18333d;box-shadow:inset 0 1px #ffffffaa,0 4px 12px #061a2220}
+.choice b{letter-spacing:.2px}
+.choice.selected{background:linear-gradient(145deg,#e4f2b8,#c4e18d);border-color:#e9f9c5;color:#21342b}
+.start-btn{min-height:56px;width:100%;font-size:12px;letter-spacing:1px;background:linear-gradient(135deg,#b5e3ed,#78bfd2);box-shadow:0 7px 18px #72b8c92e;border:1px solid #d6f5f6}
+.action-row{display:block;margin-top:12px}
+.selected-note{text-align:center;margin:0 0 8px;min-height:12px}
+.result.show{min-height:48px;display:grid;place-items:center;font-size:13px}
+.promo-heading{justify-content:flex-start}
+.promo-heading span{display:none}
+@media(max-width:560px){
+ .warehouse-row{top:43px;left:4%;right:4%;gap:7px}
+ .door{height:59px}
+ .warehouse label{font-size:6.5px}
+ .yard{height:178px}
+ .forklift{width:137px;height:83px;bottom:-1px;left:0}
+ .start-btn{width:100%;min-height:56px;padding:15px 12px;font-size:11px}
+ .action-row{display:block}
+ .selected-note{margin-bottom:7px}
+ .sound-btn{width:32px}
+}

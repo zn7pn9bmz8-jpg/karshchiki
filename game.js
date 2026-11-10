@@ -2,11 +2,11 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const names=['КАРАНТИН','ПОЛТОРАШКА','СИМ 400'];
 const savedScore=localStorage.getItem('cehiScore');
 let selected=null,busy=false,round=Number(localStorage.getItem('cehiRound')||0),score=(savedScore===null)?68000:Number(savedScore),sound=localStorage.getItem('cehiSound')!=='off',avatar=localStorage.getItem('cehiAvatar')||'🦺',nickname=localStorage.getItem('cehiNickname')||'Игрок',audioCtx=null,engineNodes=[];
-const scoreEl=$('#score'),statusEl=$('#yardStatus'),resultEl=$('#result'),forklift=$('#forklift');
+const scoreEl=$('#score'),resultEl=$('#result'),forklift=$('#forklift');
 function render(){
   scoreEl.textContent=score.toLocaleString('ru-RU');
   $('#roundLabel').textContent='ЗАЕЗД '+String(round+1).padStart(2,'0');
-  $('#soundBtn').textContent=sound?'♫':'♫̸';
+  $('#soundBtn').innerHTML=sound?'<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 12h6l8-6v20l-8-6H4z"/><path class="sound-wave" d="M22 11q7 5 0 10M25 7q11 9 0 18"/></svg>':'<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 12h6l8-6v20l-8-6H4z"/><path d="m22 12 7 8m0-8-7 8" class="sound-slash"/></svg>'; 
   $('#soundBtn').setAttribute('aria-label',sound?'Звук включён':'Звук выключен');
   $('#avatarMini').innerHTML=avatar.startsWith('data:image/')?`<img src="${avatar}" alt="Аватар">`:avatar;
   $('#avatarPreview').innerHTML=avatar.startsWith('data:image/')?`<img src="${avatar}" alt="Аватар">`:avatar;
@@ -32,21 +32,21 @@ $$('.choice').forEach(b=>b.addEventListener('click',()=>select(Number(b.dataset.
 $('#startBtn').addEventListener('click',()=>{
   if(selected===null||busy)return;
   busy=true;$('#startBtn').disabled=true;$$('.choice').forEach(b=>b.disabled=true);
-  resultEl.className='result';resultEl.textContent='';$('#arrivalBadge').classList.remove('show');$$('.warehouse').forEach(w=>w.classList.remove('target'));
-  statusEl.textContent='ДВИГАТЕЛЬ ЗАПУЩЕН';forklift.style.transition='none';forklift.style.left='3%';forklift.classList.add('moving');void forklift.offsetWidth;forklift.style.transition='left 2.7s cubic-bezier(.22,.7,.2,1)';engineStart();
+  resultEl.className='result';resultEl.textContent='';$$('.warehouse').forEach(w=>w.classList.remove('target'));
+  forklift.style.transition='none';forklift.style.left='3%';forklift.classList.add('moving');void forklift.offsetWidth;forklift.style.transition='left 2.7s cubic-bezier(.22,.7,.2,1)';engineStart();
   const destination=Math.floor(Math.random()*3),left=[3,37,67][destination];setTimeout(()=>{forklift.style.left=left+'%';},60);
   setTimeout(()=>{
     forklift.classList.remove('moving');$$('.warehouse')[destination].classList.add('target');
     const won=destination===selected;score=Math.max(0,score+(won?1000:-100));round++;
     localStorage.setItem('cehiScore',score);localStorage.setItem('cehiRound',round);render();
-    statusEl.textContent='ПОГРУЗЧИК ПРИБЫЛ';$('#arrivalBadge').classList.add('show');
+
     resultEl.textContent=won?'ВЫ УГАДАЛИ! +1 000 РУБЛЕЙ':'В ЭТОТ РАЗ НЕ УГАДАЛИ · −100 РУБЛЕЙ';resultEl.classList.add('show');
     if(won)fanfare();else tone(240,.25,'triangle',.04);
-    $('#selectedNote').textContent='Погрузчик прибыл: '+names[destination];$('#startBtn').textContent='СЛЕДУЮЩИЙ ЗАЕЗД →';$('#startBtn').disabled=false;busy=false;
+    $('#selectedNote').textContent='';$('#startBtn').textContent='СЛЕДУЮЩИЙ ЗАЕЗД →';$('#startBtn').disabled=false;busy=false;
     $$('.choice').forEach(b=>b.disabled=false);selected=null;$$('.choice').forEach(b=>b.classList.remove('selected'));
   },2900);
 });
-$('#startBtn').addEventListener('click',()=>{if(!busy&&selected===null){$('#startBtn').textContent='ОТПРАВИТЬ ПОГРУЗЧИК →';statusEl.textContent='ПОГРУЗЧИК ОЖИДАЕТ ЗАДАНИЕ';forklift.style.transition='left .2s';forklift.style.left='3%';$$('.warehouse').forEach(w=>w.classList.remove('target'));$('#arrivalBadge').classList.remove('show');$('#selectedNote').textContent='Выберите, куда доедет погрузчик';resultEl.className='result';}});
+$('#startBtn').addEventListener('click',()=>{if(!busy&&selected===null){$('#startBtn').textContent='ОТПРАВИТЬ ПОГРУЗЧИК →';forklift.style.transition='left .2s';forklift.style.left='3%';$$('.warehouse').forEach(w=>w.classList.remove('target'));$('#selectedNote').textContent='Выберите, куда доедет погрузчик';resultEl.className='result';}});
 $('#soundBtn').addEventListener('click',()=>{sound=!sound;localStorage.setItem('cehiSound',sound?'on':'off');render();if(sound)tone(660,.1)});
 function openModal(id){$(id).classList.add('open')}function closeModal(id){$(id).classList.remove('open')}
 function showProfile(){openModal('#profileModal')}
