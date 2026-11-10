@@ -2,64 +2,26 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#65c9ed">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Весёлый трактор">
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" href="./icons/icon-192.png">
-<link rel="stylesheet" href="./style.css">
-<title>Весёлый трактор — азбука</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#168bd2">
+<meta name="description" content="Интерактивная азбука и цифры по мотивам приключений Синего трактора">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+<title>Азбука тракторных приключений</title>
 </head>
 <body>
-<header class="top">
-  <div class="brand">
-    <div class="brand-icon" aria-hidden="true">🚜</div>
-    <div><div class="brand-title">Весёлый трактор</div><div class="brand-sub">Азбука и цифры</div></div>
-  </div>
-  <button class="sound" id="soundToggle" aria-label="Выключить звук" title="Звук">🔊</button>
+<header>
+  <div class="brand"><div class="tractor" aria-hidden="true">🚜</div><div><h1>Азбука тракторных приключений</h1><p>Буквы, цифры и знакомые герои</p></div></div>
+  <button id="sound" class="sound" aria-pressed="true">🔊 Звук включён</button>
 </header>
-
 <main>
-  <section class="hero">
-    <div class="hero-copy">
-      <div class="eyebrow">Учимся играя</div>
-      <h1>Буквы и цифры<br><span>на ферме!</span></h1>
-      <p>Нажимай на карточки — трактор расскажет, что на них написано.</p>
-      <div class="hero-actions">
-        <button class="primary" id="startLetters">Учить буквы</button>
-        <button class="secondary" id="startNumbers">Учить цифры</button>
-      </div>
-    </div>
-    <div class="tractor-scene" aria-label="Оригинальный рисунок весёлого трактора">
-      <div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div>
-      <div class="hill hill-back"></div><div class="hill hill-front"></div>
-      <div class="tractor">
-        <div class="exhaust"></div><div class="cab"><div class="window"></div></div>
-        <div class="hood"></div><div class="grill"></div>
-        <div class="wheel wheel-big"><i></i></div><div class="wheel wheel-small"><i></i></div>
-        <div class="headlamp"></div>
-      </div>
-      <div class="flower f1">✿</div><div class="flower f2">✿</div><div class="flower f3">✿</div>
-    </div>
-  </section>
-
-  <section class="learning" id="learning">
-    <div class="section-head">
-      <div><div class="eyebrow">Выбирай карточку</div><h2 id="sectionTitle">Русский алфавит</h2></div>
-      <div class="tabs"><button class="tab active" data-mode="letters">Буквы</button><button class="tab" data-mode="numbers">Цифры</button></div>
-    </div>
-    <div class="feature-card" id="featureCard" aria-live="polite">
-      <div class="feature-visual" id="featureVisual">А</div>
-      <div class="feature-info"><div class="feature-kicker" id="featureKicker">Буква дня</div><div class="feature-word" id="featureWord">А — айва</div><div class="feature-hint" id="featureHint">Нажми на динамик, чтобы услышать</div></div>
-      <button class="speak" id="speakCurrent" aria-label="Произнести">🔊</button>
-    </div>
-    <div class="grid" id="cards" aria-label="Карточки алфавита"></div>
-  </section>
-  <section class="tip"><span>💡</span><p>Совет: нажимай на большую карточку или на значок динамика, чтобы повторить произношение.</p></section>
+  <nav class="tabs" aria-label="Разделы"><button class="tab active" data-tab="letters">Азбука</button><button class="tab" data-tab="numbers">Цифры</button><button class="tab" data-tab="heroes">Герои</button></nav>
+  <section id="letters" class="panel active"><div class="intro"><h2>Выбери букву!</h2><p>Нажми на карточку — услышишь букву и слово.</p></div><div id="alphabet" class="tiles"></div></section>
+  <section id="numbers" class="panel"><div class="intro"><h2>Учимся считать</h2><p>Нажимай на цифру и считай предметы.</p></div><div id="numbergrid" class="tiles numbers"></div></section>
+  <section id="heroes" class="panel"><div class="intro"><h2>Герои и друзья</h2><p>Небольшая текстовая энциклопедия персонажей и машин из вселенной мультсериала.</p></div><div id="heroGrid" class="hero-grid"></div><p class="note">Это неофициальный учебный фан-проект. Здесь используются только имена и текстовые упоминания; оригинальные изображения, музыка и голоса мультсериала не включены.</p></section>
+  <aside id="detail" class="detail" aria-live="polite"><div class="bigemoji">🚜</div><div><strong>Привет!</strong><p>Выбери букву, цифру или героя.</p></div></aside>
 </main>
-<footer>Весёлый трактор · Учимся каждый день</footer>
-<script src="./app.js"></script>
-</body>
-</html>
+<footer>Учимся играя · Работает на телефоне и компьютере</footer>
+<script src="app.js"></script>
+</body></html>

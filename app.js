@@ -1,18 +1,23 @@
 const letters = [
-["А","айва","🍐"],["Б","бобр","🦫"],["В","вафля","🧇"],["Г","глобус","🌍"],["Д","дельфин","🐬"],["Е","енот","🦝"],["Ё","ёжик","🦔"],["Ж","жёлудь","🌰"],["З","зонт","☂️"],["И","ирис","🌸"],["Й","йогурт","🥣"],["К","кальмар","🦑"],["Л","лимонад","🥤"],["М","маяк","🗼"],["Н","носорог","🦏"],["О","одуванчик","🌼"],["П","пингвин","🐧"],["Р","ракушка","🐚"],["С","самокат","🛴"],["Т","тигр","🐯"],["У","улитка","🐌"],["Ф","фонарь","🏮"],["Х","хомяк","🐹"],["Ц","цапля","🦩"],["Ч","черепаха","🐢"],["Ш","шишка","🌲"],["Щ","щётка","🪥"],["Ъ","твёрдый знак","🔤"],["Ы","сыр","🧀"],["Ь","мягкий знак","🔤"],["Э","экскаватор","🚜"],["Ю","юбка","👗"],["Я","якорь","⚓"]
+["А","арбуз","🍉"],["Б","барабан","🥁"],["В","ворона","🐦‍⬛"],["Г","грузовик","🚚"],["Д","дом","🏠"],["Е","ель","🌲"],["Ё","ёжик","🦔"],["Ж","жираф","🦒"],["З","заяц","🐇"],["И","игрушка","🧸"],["Й","йогурт","🥛"],["К","котёнок Котэ","🐱"],["Л","лопата","🪏"],["М","машина","🚗"],["Н","носорог","🦏"],["О","облако","☁️"],["П","профессор","👨‍🏫"],["Р","ракета","🚀"],["С","совушка","🦉"],["Т","трактор","🚜"],["У","улитка","🐌"],["Ф","фонарь","🏮"],["Х","хомяк","🐹"],["Ц","цыплёнок","🐥"],["Ч","черепаха","🐢"],["Ш","шарик","🎈"],["Щ","щенок","🐶"],["Ъ","твёрдый знак","🔤"],["Ы","буква Ы","🔤"],["Ь","мягкий знак","🔤"],["Э","экскаватор","🚜"],["Ю","юла","🌀"],["Я","ягоды","🫐"]
 ];
-const numbers = Array.from({length:10},(_,i)=>[String(i+1),["один","два","три","четыре","пять","шесть","семь","восемь","девять","десять"][i],["🍎","🐥","⭐","🚗","🌼","🧸","🎈","🐟","🍪","🚜"][i]]);
-let mode="letters", current=letters[0], soundOn=true;
-const cards=document.getElementById("cards"), sectionTitle=document.getElementById("sectionTitle");
-const featureVisual=document.getElementById("featureVisual"), featureWord=document.getElementById("featureWord"), featureKicker=document.getElementById("featureKicker"), featureHint=document.getElementById("featureHint");
-function say(text){if(!soundOn||!("speechSynthesis" in window))return; speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="ru-RU";u.rate=.86;u.pitch=1.08;speechSynthesis.speak(u)}
-function selectItem(item,el){current=item;document.querySelectorAll(".letter-card").forEach(x=>x.classList.remove("selected"));if(el)el.classList.add("selected");featureVisual.textContent=mode==="letters"?item[0]:item[2];featureWord.textContent=mode==="letters"?`${item[0]} — ${item[1]}`:`${item[0]} — ${item[1]}`;featureKicker.textContent=mode==="letters"?"Буква":"Число";featureHint.textContent=mode==="letters"?"Нажми на динамик и повтори!":"Послушай и посчитай!";say(mode==="letters"?`${item[0]} — ${item[1]}`:`${item[0]}. ${item[1]}`)}
-function render(){const data=mode==="letters"?letters:numbers;cards.innerHTML="";sectionTitle.textContent=mode==="letters"?"Русский алфавит":"Цифры от 1 до 10";data.forEach((item,i)=>{const b=document.createElement("button");b.className="letter-card"+(i===0?" selected":"");b.innerHTML=`<span class="card-main">${mode==="letters"?item[0]:item[0]}</span><span class="card-emoji">${mode==="letters"?item[2]:item[2]}</span><span class="card-word">${item[1]}</span>`;b.addEventListener("click",()=>selectItem(item,b));cards.appendChild(b)});selectItem(data[0],cards.firstElementChild)}
-function setMode(m){mode=m;document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.mode===m));render()}
-document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>setMode(t.dataset.mode)));
-document.getElementById("startLetters").addEventListener("click",()=>{setMode("letters");document.getElementById("learning").scrollIntoView({behavior:"smooth"})});
-document.getElementById("startNumbers").addEventListener("click",()=>{setMode("numbers");document.getElementById("learning").scrollIntoView({behavior:"smooth"})});
-document.getElementById("speakCurrent").addEventListener("click",()=>say(mode==="letters"?`${current[0]} — ${current[1]}`:`${current[0]}. ${current[1]}`));
-document.getElementById("soundToggle").addEventListener("click",e=>{soundOn=!soundOn;e.currentTarget.textContent=soundOn?"🔊":"🔇";e.currentTarget.setAttribute("aria-label",soundOn?"Выключить звук":"Включить звук");if(!soundOn&&"speechSynthesis"in window)speechSynthesis.cancel()});
-render();
-if("serviceWorker"in navigator && location.protocol.startsWith("http")) window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+const heroes = [
+["🚜","Синий Трактор","Главный герой мультсериала — весёлый синий трактор, который путешествует и знакомится с разными животными и машинами."],
+["🐱","Котёнок Котэ","Мультяшный котёнок из связанных детских проектов; здесь упомянут как один из знакомых героев."],
+["👨‍🏫","Профессор Кислых Щей","Профессор, который появляется в историях и помогает узнавать новое."],
+["👦","Паша","Мальчик из эпизодов мультсериала."],
+["🦉","Совушка","Маленькая сова из отдельной истории."],
+["🚜","Другие тракторы","В историях встречаются тракторы разных цветов."],
+["🚛","Грузовики и спецтехника","Мусоровозы, экскаваторы, бульдозеры и другие машины помогают изучать транспорт."],
+["🐧","Животные и птицы","В сериях появляются разные звери и птицы: их можно учиться узнавать по названию и голосу."]
+];
+const alphabet=document.querySelector('#alphabet'), numbergrid=document.querySelector('#numbergrid'), detail=document.querySelector('#detail');
+let soundOn=true;
+function speak(text){if(!soundOn||!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='ru-RU';u.rate=.86;speechSynthesis.speak(u)}
+function show(emoji,title,desc){detail.innerHTML=`<div class="bigemoji">${emoji}</div><div><strong>${title}</strong><p>${desc}</p></div>`;speak(title+'. '+desc)}
+letters.forEach(([l,w,e])=>{const b=document.createElement('button');b.className='tile';b.innerHTML=`<span class="letter">${l}</span><span>${e}</span><span class="word">${w}</span>`;b.onclick=()=>show(e,l+' — '+w,'Повтори: '+l+'. '+w+'.');alphabet.append(b)});
+for(let n=1;n<=10;n++){const b=document.createElement('button');b.className='tile';const em=['🚜','⭐','🍎','🐥','🚗','🌼','🐱','🎈','🦋','🍓'][n-1];b.innerHTML=`<span class="letter">${n}</span><span style="font-size:25px">${em.repeat(Math.min(n,5))}</span><span class="word">${n} ${n===1?'предмет':n<5?'предмета':'предметов'}</span>`;b.onclick=()=>show(em,String(n),'Посчитай до '+n+'.');numbergrid.append(b)}
+heroes.forEach(([e,n,d])=>{const card=document.createElement('article');card.className='hero';card.innerHTML=`<div class="emoji">${e}</div><h3>${n}</h3><p>${d}</p>`;card.onclick=()=>show(e,n,d);heroGrid.append(card)});
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab,.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active')});
+document.querySelector('#sound').onclick=e=>{soundOn=!soundOn;e.currentTarget.setAttribute('aria-pressed',String(soundOn));e.currentTarget.textContent=soundOn?'🔊 Звук включён':'🔇 Звук выключен';if(!soundOn&&'speechSynthesis'in window)speechSynthesis.cancel()};
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
