@@ -1,1 +1,21 @@
-{"name":"Карщики — Цеха","short_name":"Карщики","start_url":"./","scope":"./","display":"standalone","background_color":"#101a26","theme_color":"#111b27","orientation":"portrait","icons":[{"src":"icons/icon-192.png","sizes":"192x192","type":"image/png"},{"src":"icons/icon-512.png","sizes":"512x512","type":"image/png"}]}
+{
+  "name": "Весёлый трактор — азбука и цифры",
+  "short_name": "Азбука",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2fbff",
+  "theme_color": "#65c9ed",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
