@@ -1,7 +1,7 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0788d2"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css"><title>Азбука Синего трактора</title></head><body>
-<header><img class="hero-art" src="assets/menu-art.png" alt="Синий трактор и друзья на ферме"><div class="hero-copy"><h1>Азбука Синего трактора</h1><p>Учимся буквам, цифрам и знакомимся с героями</p><button id="sound">🔊 Весёлый голос: включён</button></div></header>
-<main><nav><button class="tab active" data-tab="letters">Буквы</button><button class="tab" data-tab="numbers">Цифры</button><button class="tab" data-tab="cast">Персонажи</button></nav>
-<section id="letters" class="panel active"><h2>Выбери букву</h2><div id="alphabet" class="alphabet"></div></section>
-<section id="numbers" class="panel"><h2>Считаем от 1 до 10</h2><div id="numbergrid" class="numbers"></div></section>
-<section id="cast" class="panel"><h2>Мир Синего трактора</h2><p class="sub">Персонажи, машины и гости из разных серий. Нажми на карточку, чтобы услышать название.</p><div id="characters" class="cast"></div><p class="source-note">Каталог составлен по сюжетам и названиям серий; в мультсериале много разовых животных и машин, поэтому это расширенная подборка, а не обещание полного перечня каждого эпизодического героя.</p></section>
-<aside id="info"><img src="assets/blue-tractor.jpg" alt="Синий трактор"><div><b>Привет! Я Синий трактор!</b><p>Нажимай на буквы, цифры и картинки друзей.</p></div></aside></main><footer>Интерактивная азбука · Для телефона и компьютера</footer><script src="app.js"></script></body></html>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#168ed0"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css"><title>Тракторная азбука</title></head><body><main class="game">
+<div class="top"><div class="title">🚜 Тракторная азбука</div><div class="tools"><button id="voice" aria-label="Звук">🔊</button><button id="help" aria-label="Помощь">❔</button></div></div>
+<div class="letters" id="letters"></div>
+<div class="numbers" id="numbers"></div>
+<div class="bottom"><button id="people">⭐ Герои и друзья</button><div id="message">Нажми на букву или цифру!</div></div>
+<div id="modal" class="modal hidden"><div class="dialog"><button id="close" class="close">✕</button><h2 id="modalTitle">Герои</h2><div id="cast" class="cast"></div></div></div>
+</main><script src="app.js"></script></body></html>

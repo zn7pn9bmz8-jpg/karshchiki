@@ -1,9 +1,9 @@
 {
-  "name": "Азбука Синего трактора",
-  "short_name": "Синий трактор",
+  "name": "Тракторная азбука",
+  "short_name": "Азбука",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#dff4ff",
-  "theme_color": "#0788d2",
-  "icons": []
+  "orientation": "any",
+  "background_color": "#70c94b",
+  "theme_color": "#168ed0"
 }
