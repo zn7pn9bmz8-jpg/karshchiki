@@ -10,3 +10,8 @@ hit(20,820,135,90,'Домой',()=>{msg.textContent='Привет! Давай у
 hit(635,835,375,80,'Персонажи',()=>document.querySelector('#modal').classList.remove('hidden'));
 hit(1490,820,135,90,'Звёздочка',()=>{msg.textContent='Молодец! Так держать!';say('Молодец! Так держать!')});
 const grid=document.querySelector('#cast');cast.forEach((name,i)=>{let b=document.createElement('button');b.textContent=['🚜','🐮','🐷','🐑','🐱','🐴','🦆','🐦','🐰','🦊','🐻','🦔','🦒','🐘','🐧','🐸','🐶','🐐'][i]+' '+name;b.onclick=()=>{msg.textContent=name;say(name)};grid.append(b)});document.querySelector('#close').onclick=()=>document.querySelector('#modal').classList.add('hidden');document.querySelector('#modal').onclick=e=>{if(e.target.id==='modal')e.currentTarget.classList.add('hidden')};
+
+// Offline/PWA support. Installation is offered by the browser when hosted over HTTPS.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}
