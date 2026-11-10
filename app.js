@@ -1,23 +1,44 @@
-const letters = [
-["А","арбуз","🍉"],["Б","барабан","🥁"],["В","ворона","🐦‍⬛"],["Г","грузовик","🚚"],["Д","дом","🏠"],["Е","ель","🌲"],["Ё","ёжик","🦔"],["Ж","жираф","🦒"],["З","заяц","🐇"],["И","игрушка","🧸"],["Й","йогурт","🥛"],["К","котёнок Котэ","🐱"],["Л","лопата","🪏"],["М","машина","🚗"],["Н","носорог","🦏"],["О","облако","☁️"],["П","профессор","👨‍🏫"],["Р","ракета","🚀"],["С","совушка","🦉"],["Т","трактор","🚜"],["У","улитка","🐌"],["Ф","фонарь","🏮"],["Х","хомяк","🐹"],["Ц","цыплёнок","🐥"],["Ч","черепаха","🐢"],["Ш","шарик","🎈"],["Щ","щенок","🐶"],["Ъ","твёрдый знак","🔤"],["Ы","буква Ы","🔤"],["Ь","мягкий знак","🔤"],["Э","экскаватор","🚜"],["Ю","юла","🌀"],["Я","ягоды","🫐"]
+const letters=[
+["А","автобус","🚌"],["Б","барабан","🥁"],["В","воробей","🐦"],["Г","грузовик","🚚"],["Д","дом","🏠"],["Е","ель","🌲"],["Ё","ёжик","🦔"],["Ж","жираф","🦒"],["З","заяц","🐇"],["И","игрушка","🧸"],["Й","йогурт","🥛"],["К","котёнок","🐱"],["Л","лопата","🪏"],["М","машинка","🚗"],["Н","носорог","🦏"],["О","облако","☁️"],["П","птичка","🐤"],["Р","ракета","🚀"],["С","Синий трактор","🚜"],["Т","трактор","🚜"],["У","улитка","🐌"],["Ф","фонарик","🏮"],["Х","хомяк","🐹"],["Ц","цыплёнок","🐥"],["Ч","черепаха","🐢"],["Ш","шарик","🎈"],["Щ","щенок","🐶"],["Ъ","твёрдый знак","🔤"],["Ы","буква Ы","🔤"],["Ь","мягкий знак","🔤"],["Э","экскаватор","🚜"],["Ю","юла","🌀"],["Я","ягоды","🫐"]];
+const friends=[
+["🚜","Синий трактор","Главный герой. Поёт песенки, ездит в гости и знакомит малышей с окружающим миром."],
+["👨‍🔬","Профессор","Профессор — один из постоянных персонажей приключений Синего трактора."],
+["🐱","Котёнок Котэ","Котёнок появляется в совместных музыкальных и познавательных выпусках."],
+["🐈","Кот Фёдор","Кот Фёдор встречается в музыкальных проектах и совместных выпусках."],
+["🎤","Кукутики","Детский музыкальный проект, связанный с общей вселенной и совместными выпусками."],
+["🚿","Поливалка","Машина-помощница; появляется среди знакомых машин мультсериала."],
+["🚚","Грузовик","Перевозит грузы и встречается в дорожных и рабочих приключениях."],
+["🚛","Мусоровоз","Машина, которая помогает узнавать, как вывозят мусор."],
+["🚜","Экскаватор","Строительная машина с большим ковшом."],
+["🚜","Бульдозер","Мощная машина для строительных работ."],
+["🚒","Пожарная машина","Специальная машина, которая приезжает на помощь."],
+["🚓","Полицейский грузовик","Герой дорожных приключений."],
+["🚜","Каток","Дорожная машина с большим валиком."],
+["🚤","Катерок","Водный транспорт из отдельного приключения."],
+["✈️","Самолёт","Летательный аппарат из серий о транспорте."],
+["🤖","Робот","Механический герой из нескольких приключений."],
+["🐦","Птички","В сериях появляются разные птицы: воробьи, гуси, петухи и другие."],
+["🦉","Совушка","Сова из колыбельной и серий о птицах."],
+["🐧","Пингвин","Один из животных-гостей в приключениях."],
+["🐨","Коала","Животное из выпуска о самолётах и путешествиях."],
+["🐒","Обезьянка","Животное-гость в приключениях Синего трактора."],
+["🐜","Муравей","Один из героев серии о насекомых."],
+["🦋","Бабочка","Насекомое из познавательной серии."],
+["🦗","Кузнечик","Насекомое из музыкального выпуска."],
+["🐍","Змея","Гость отдельной серии второго сезона."],
+["🦔","Ёжик","Животное из мира Синего трактора."],
+["🕳️","Крот","Герой отдельной серии."],
+["🎅","Дед Мороз","Новогодний персонаж праздничных выпусков."]
 ];
-const heroes = [
-["🚜","Синий Трактор","Главный герой мультсериала — весёлый синий трактор, который путешествует и знакомится с разными животными и машинами."],
-["🐱","Котёнок Котэ","Мультяшный котёнок из связанных детских проектов; здесь упомянут как один из знакомых героев."],
-["👨‍🏫","Профессор Кислых Щей","Профессор, который появляется в историях и помогает узнавать новое."],
-["👦","Паша","Мальчик из эпизодов мультсериала."],
-["🦉","Совушка","Маленькая сова из отдельной истории."],
-["🚜","Другие тракторы","В историях встречаются тракторы разных цветов."],
-["🚛","Грузовики и спецтехника","Мусоровозы, экскаваторы, бульдозеры и другие машины помогают изучать транспорт."],
-["🐧","Животные и птицы","В сериях появляются разные звери и птицы: их можно учиться узнавать по названию и голосу."]
-];
-const alphabet=document.querySelector('#alphabet'), numbergrid=document.querySelector('#numbergrid'), detail=document.querySelector('#detail');
-let soundOn=true;
-function speak(text){if(!soundOn||!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='ru-RU';u.rate=.86;speechSynthesis.speak(u)}
-function show(emoji,title,desc){detail.innerHTML=`<div class="bigemoji">${emoji}</div><div><strong>${title}</strong><p>${desc}</p></div>`;speak(title+'. '+desc)}
-letters.forEach(([l,w,e])=>{const b=document.createElement('button');b.className='tile';b.innerHTML=`<span class="letter">${l}</span><span>${e}</span><span class="word">${w}</span>`;b.onclick=()=>show(e,l+' — '+w,'Повтори: '+l+'. '+w+'.');alphabet.append(b)});
-for(let n=1;n<=10;n++){const b=document.createElement('button');b.className='tile';const em=['🚜','⭐','🍎','🐥','🚗','🌼','🐱','🎈','🦋','🍓'][n-1];b.innerHTML=`<span class="letter">${n}</span><span style="font-size:25px">${em.repeat(Math.min(n,5))}</span><span class="word">${n} ${n===1?'предмет':n<5?'предмета':'предметов'}</span>`;b.onclick=()=>show(em,String(n),'Посчитай до '+n+'.');numbergrid.append(b)}
-heroes.forEach(([e,n,d])=>{const card=document.createElement('article');card.className='hero';card.innerHTML=`<div class="emoji">${e}</div><h3>${n}</h3><p>${d}</p>`;card.onclick=()=>show(e,n,d);heroGrid.append(card)});
-document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab,.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active')});
-document.querySelector('#sound').onclick=e=>{soundOn=!soundOn;e.currentTarget.setAttribute('aria-pressed',String(soundOn));e.currentTarget.textContent=soundOn?'🔊 Звук включён':'🔇 Звук выключен';if(!soundOn&&'speechSynthesis'in window)speechSynthesis.cancel()};
-if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+let sound=true,voices=[];
+function loadVoices(){if(!('speechSynthesis'in window))return;voices=speechSynthesis.getVoices();}
+if('speechSynthesis'in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices;}
+function say(text){if(!sound||!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='ru-RU';u.rate=1.03;u.pitch=1.24;u.volume=1;const ru=voices.filter(v=>/^ru(-|_)/i.test(v.lang));const preferred=ru.find(v=>/female|woman|google|yandex|irina|milena|alena|katya/i.test(v.name))||ru[0];if(preferred)u.voice=preferred;speechSynthesis.speak(u);}
+function show(emoji,title,desc){document.querySelector('#detail').innerHTML=`<div class="big">${emoji}</div><div><b>${title}</b><p>${desc}</p></div>`;say(title+'. '+desc);}
+const alphabet=document.querySelector('#alphabet');
+letters.forEach(([l,w,e])=>{const b=document.createElement('button');b.className='tile';b.innerHTML=`<span class="letter">${l}</span><span class="pic">${e}</span><span class="word">${w}</span>`;b.onclick=()=>show(e,l+' — '+w,'Давай повторим: '+l+' '+w+'!');alphabet.append(b);});
+const nums=document.querySelector('#numbergrid'), emojis=['🚜','⭐','🍎','🐥','🚗','🌼','🐱','🎈','🦋','🍓'];for(let n=1;n<=10;n++){let b=document.createElement('button');b.className='tile';b.innerHTML=`<span class="letter">${n}</span><span class="pic">${emojis.slice(0,Math.min(n,5)).join('')}</span><span class="word">${n} ${n===1?'предмет':n<5?'предмета':'предметов'}</span>`;b.onclick=()=>show(emojis[n-1],String(n),'Считаем до '+n+'!');nums.append(b);}
+const fg=document.querySelector('#friendgrid');friends.forEach(([e,n,d])=>{let b=document.createElement('button');b.className='friend';b.innerHTML=`<span class="pic">${e}</span><h3>${n}</h3><p>${d}</p>`;b.onclick=()=>show(e,n,d);fg.append(b);});
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab,.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');});
+document.querySelector('#sound').onclick=e=>{sound=!sound;e.currentTarget.textContent=sound?'🔊 Весёлый голос: вкл.':'🔇 Голос выключен';if(!sound&&'speechSynthesis'in window)speechSynthesis.cancel();};
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));

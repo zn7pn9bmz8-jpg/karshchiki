@@ -1,10 +1,10 @@
 {
-  "name": "Азбука тракторных приключений",
+  "name": "Азбука Синего трактора",
   "short_name": "Азбука",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#eaf7ff",
-  "theme_color": "#168bd2",
+  "theme_color": "#087dcc",
   "icons": [
     {
       "src": "icons/icon-192.png",
