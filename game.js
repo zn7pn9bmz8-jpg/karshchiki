@@ -30,23 +30,55 @@ function fanfare(){if(!sound)return;[659,784,988,1319,1568].forEach((f,i)=>tone(
 function select(n){if(busy)return;selected=n;$$('.choice').forEach((b,i)=>b.classList.toggle('selected',i===n));$('#selectedNote').textContent='Выбрано: '+names[n];$('#startBtn').disabled=false;tone(520,.08,'sine',.025)}
 $$('.choice').forEach(b=>b.addEventListener('click',()=>select(Number(b.dataset.choice))));
 $('#startBtn').addEventListener('click',()=>{
-  if(selected===null||busy)return;
+  if(busy)return;
+  if(selected===null){
+    $('#startBtn').textContent='ОТПРАВИТЬ ПОГРУЗЧИК →';
+    forklift.style.transition='left .2s';forklift.style.left='1%';
+    $$('.warehouse').forEach(w=>w.classList.remove('target'));
+    $('#selectedNote').textContent='Выберите, куда доедет погрузчик';resultEl.className='result';return;
+  }
   busy=true;$('#startBtn').disabled=true;$$('.choice').forEach(b=>b.disabled=true);
-  resultEl.className='result';resultEl.textContent='';$$('.warehouse').forEach(w=>w.classList.remove('target'));
-  forklift.style.transition='none';forklift.style.left='3%';forklift.classList.add('moving');void forklift.offsetWidth;forklift.style.transition='left 2.7s cubic-bezier(.22,.7,.2,1)';engineStart();
-  const destination=Math.floor(Math.random()*3),left=[3,37,67][destination];setTimeout(()=>{forklift.style.left=left+'%';},60);
+  resultEl.className='result';resultEl.textContent='';$('#fireworks').innerHTML='';
+  $$('.warehouse').forEach(w=>w.classList.remove('target'));
+  const chosen=selected;
+  const centers=[9,40,71];
+  forklift.style.transition='none';forklift.style.left='1%';forklift.classList.add('moving');void forklift.offsetWidth;
+  forklift.style.transition='left 2.25s cubic-bezier(.22,.7,.2,1)';engineStart();
+  setTimeout(()=>{forklift.style.left=centers[chosen]+'%';},60);
+  const destination=Math.floor(Math.random()*3),won=destination===chosen;
   setTimeout(()=>{
-    forklift.classList.remove('moving');$$('.warehouse')[destination].classList.add('target');
-    const won=destination===selected;score=Math.max(0,score+(won?1000:-100));round++;
+    forklift.classList.remove('moving');$$('.warehouse')[chosen].classList.add('target');
+    if(won){
+      finishRound(true);
+    }else{
+      // The truck reaches the chosen building first, pauses, then leaves: a deliberate fake-out.
+      setTimeout(()=>{
+        $$('.warehouse')[chosen].classList.remove('target');
+        forklift.classList.add('moving');forklift.style.transition='left 1.05s ease-in';forklift.style.left='105%';
+        setTimeout(()=>{forklift.classList.remove('moving');finishRound(false);},1100);
+      },650);
+    }
+  },2350);
+  function finishRound(won){
+    score=Math.max(0,score+(won?1000:-100));round++;
     localStorage.setItem('cehiScore',score);localStorage.setItem('cehiRound',round);render();
-
     resultEl.textContent=won?'ВЫ УГАДАЛИ! +1 000 РУБЛЕЙ':'В ЭТОТ РАЗ НЕ УГАДАЛИ · −100 РУБЛЕЙ';resultEl.classList.add('show');
-    if(won)fanfare();else tone(240,.25,'triangle',.04);
+    if(won){fanfare();launchFireworks()}else tone(240,.25,'triangle',.04);
     $('#selectedNote').textContent='';$('#startBtn').textContent='СЛЕДУЮЩИЙ ЗАЕЗД →';$('#startBtn').disabled=false;busy=false;
     $$('.choice').forEach(b=>b.disabled=false);selected=null;$$('.choice').forEach(b=>b.classList.remove('selected'));
-  },2900);
+  }
 });
-$('#startBtn').addEventListener('click',()=>{if(!busy&&selected===null){$('#startBtn').textContent='ОТПРАВИТЬ ПОГРУЗЧИК →';forklift.style.transition='left .2s';forklift.style.left='3%';$$('.warehouse').forEach(w=>w.classList.remove('target'));$('#selectedNote').textContent='Выберите, куда доедет погрузчик';resultEl.className='result';}});
+function launchFireworks(){
+  const box=$('#fireworks');
+  const colors=['#e4f5a7','#a9dff0','#ffffff','#f4d58d','#8fd1bf'];
+  for(let i=0;i<34;i++){
+    const bit=document.createElement('i');bit.className='firework-bit';
+    bit.style.setProperty('--x',(Math.random()*100)+'%');bit.style.setProperty('--y',(Math.random()*58+8)+'%');
+    bit.style.setProperty('--dx',(Math.random()*150-75)+'px');bit.style.setProperty('--dy',(Math.random()*-110-20)+'px');
+    bit.style.setProperty('--rot',(Math.random()*720-360)+'deg');bit.style.background=colors[i%colors.length];box.appendChild(bit);
+  }
+  setTimeout(()=>box.innerHTML='',1500);
+}
 $('#soundBtn').addEventListener('click',()=>{sound=!sound;localStorage.setItem('cehiSound',sound?'on':'off');render();if(sound)tone(660,.1)});
 function openModal(id){$(id).classList.add('open')}function closeModal(id){$(id).classList.remove('open')}
 function showProfile(){openModal('#profileModal')}

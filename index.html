@@ -21,7 +21,7 @@
   </div>
   <div class="top-actions">
     <button class="sound-btn" id="soundBtn" aria-label="Звук включён" title="Звук"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 12h6l8-6v20l-8-6H4z"/><path class="sound-wave" d="M22 11q7 5 0 10M25 7q11 9 0 18"/></svg></button>
-    <button class="withdraw-btn" id="withdrawBtn">ВЫВЕСТИ ДЕНЬГИ</button>
+    <button class="withdraw-btn" id="withdrawBtn">ВЫВЕЗТИ ₽</button>
   </div>
 </header>
 <main>
@@ -32,6 +32,7 @@
   <section class="yard-card">
     <div class="yard-head"><div><span class="eyebrow">ПУНКТ НАЗНАЧЕНИЯ</span><h2>Выберите цех</h2></div><div class="round-pill" id="roundLabel">ЗАЕЗД 01</div></div>
     <div class="yard" id="yard">
+      <div class="fireworks" id="fireworks" aria-hidden="true"></div>
       <div class="skyline"><span class="cloud c1"></span><span class="cloud c2"></span><span class="sun"></span></div>
       <div class="warehouse-row">
         <div class="warehouse" data-warehouse="0"><div class="roof"></div><div class="door"></div><label>КАРАНТИН</label></div>
@@ -40,46 +41,37 @@
       </div>
       <div class="ground"><div class="lane"></div>
         <div class="forklift" id="forklift" aria-label="Погрузчик">
-          <svg viewBox="0 0 250 150" role="img" aria-hidden="true">
-            <defs>
-              <linearGradient id="forkRed" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#ff554c"/><stop offset=".45" stop-color="#c9252d"/><stop offset="1" stop-color="#78151d"/></linearGradient>
-              <linearGradient id="forkBlack" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3d454b"/><stop offset="1" stop-color="#11181d"/></linearGradient>
-              <linearGradient id="forkGlass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9f6fa"/><stop offset="1" stop-color="#6095a6"/></linearGradient>
-              <linearGradient id="forkMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#687780"/><stop offset=".5" stop-color="#d5dfe1"/><stop offset="1" stop-color="#59666d"/></linearGradient>
-            </defs>
-            <ellipse cx="126" cy="137" rx="104" ry="8" fill="#17252a" opacity=".35"/>
-            <!-- mast and forks -->
-            <path d="M22 16h8v112h-8z" fill="url(#forkMetal)" stroke="#202a30" stroke-width="2"/>
-            <path d="M34 18h5v109h-5z" fill="#20282d"/>
-            <path d="M20 22h33v5H20zM20 113h37v6H20z" fill="#222b30"/>
-            <path d="M23 126h38v5H23z" fill="#aeb9bd"/>
-            <path d="M27 130h9v5h-9z" fill="#333c42"/>
-            <!-- chassis -->
-            <path d="M50 79h32l14-35h56q15 0 22 16l15 44H52z" fill="url(#forkRed)" stroke="#481a20" stroke-width="3"/>
-            <path d="M55 87h125l8 18H53z" fill="#252b30" opacity=".55"/>
-            <path d="M61 78h21l7 23H58z" fill="#f34a40"/>
-            <path d="M165 75h18l10 26h-22z" fill="#b61f29"/>
-            <!-- counterweight -->
-            <path d="M49 76q-7 1-8 12l2 21h24l-2-28q-1-5-7-5z" fill="url(#forkRed)" stroke="#541b20" stroke-width="3"/>
-            <path d="M43 97h20" stroke="#ff8a70" stroke-width="2" opacity=".7"/>
-            <!-- cabin frame -->
-            <path d="M92 74V23q0-6 7-6h40q7 0 11 7l24 49" fill="none" stroke="#151d22" stroke-width="8" stroke-linejoin="round"/>
-            <path d="M101 25h34l19 43h-53z" fill="url(#forkGlass)" stroke="#1b252b" stroke-width="3"/>
-            <path d="M140 25l18 42" stroke="#d9f8fb" stroke-width="2" opacity=".7"/>
-            <path d="M88 17h54" stroke="#10171c" stroke-width="8" stroke-linecap="round"/>
-            <path d="M90 72h82" stroke="#151d22" stroke-width="5"/>
-            <!-- seat and driver silhouette -->
-            <path d="M117 57q-2-12 8-14q9 0 10 11l-2 12h-15z" fill="#222b31"/>
-            <path d="M113 66h24l7 7h-32z" fill="#1b242a"/>
-            <!-- lights and detail -->
-            <rect x="175" y="84" width="13" height="10" rx="2" fill="#f8d88a" stroke="#4b3030" stroke-width="2"/>
-            <rect x="51" y="84" width="8" height="8" rx="2" fill="#f6e1a4"/>
-            <path d="M77 89h18M78 95h15" stroke="#ffb0a0" stroke-width="2" opacity=".7"/>
-            <path d="M185 108h24v5h-24z" fill="#20292e"/>
-            <!-- wheels -->
-            <g><circle cx="83" cy="112" r="21" fill="#11171b" stroke="#3f4b52" stroke-width="5"/><circle cx="83" cy="112" r="9" fill="url(#forkMetal)"/><circle cx="83" cy="112" r="3" fill="#344047"/></g>
-            <g><circle cx="168" cy="112" r="17" fill="#11171b" stroke="#3f4b52" stroke-width="5"/><circle cx="168" cy="112" r="7" fill="url(#forkMetal)"/><circle cx="168" cy="112" r="2.5" fill="#344047"/></g>
-            <path d="M28 131h28v4H28zM30 136h186" stroke="#1c252a" stroke-width="3"/>
+          <svg viewBox="0 0 280 160" role="img" aria-hidden="true">
+            <g fill="#10191d" stroke="#080e12" stroke-linejoin="round" stroke-linecap="round">
+              <!-- rear counterweight and low chassis -->
+              <path d="M30 91 Q31 72 49 68 L83 68 L99 53 L160 53 Q176 53 187 68 L202 104 L190 119 L44 119 Q27 116 30 91Z"/>
+              <path d="M34 88 Q39 76 55 77 L76 79 L76 108 L37 108Z" fill="#263238"/>
+              <!-- overhead guard and driver's cabin -->
+              <path d="M82 72 L89 24 Q91 15 101 15 L159 15 Q169 15 173 26 L193 74" fill="none" stroke-width="9"/>
+              <path d="M101 24 L151 24 L170 68 L94 68Z" fill="#25343b" stroke="#080e12" stroke-width="4"/>
+              <path d="M108 28 L147 28 L163 63 L101 63Z" fill="#9fcbd0" stroke="none"/>
+              <path d="M151 27 L167 64" fill="none" stroke="#d8f0e9" stroke-width="3"/>
+              <!-- driver facing the forks -->
+              <circle cx="132" cy="39" r="10" fill="#10191d" stroke="none"/>
+              <path d="M123 50 Q136 45 145 57 L150 68 L119 68Z" fill="#10191d" stroke="none"/>
+              <path d="M144 58 L159 66" fill="none" stroke="#10191d" stroke-width="5"/>
+              <!-- front mast, carriage and hydraulic rails -->
+              <path d="M204 13 L213 13 L213 126 L204 126Z" fill="#27343a" stroke-width="3"/>
+              <path d="M218 18 L224 18 L224 124 L218 124Z" fill="#10191d" stroke-width="2"/>
+              <path d="M195 42 L229 42 L229 49 L195 49Z"/>
+              <path d="M194 96 L230 96 L230 104 L194 104Z"/>
+              <!-- forks project forward, slightly raised -->
+              <path d="M224 107 L272 96 L275 102 L229 117 L224 117Z" fill="#202c32" stroke-width="2"/>
+              <path d="M226 119 L270 111 L273 117 L230 129 L225 126Z" fill="#202c32" stroke-width="2"/>
+              <!-- wheels -->
+              <circle cx="77" cy="116" r="22"/><circle cx="77" cy="116" r="11" fill="#87969a" stroke="#11191d" stroke-width="5"/>
+              <circle cx="177" cy="116" r="19"/><circle cx="177" cy="116" r="9" fill="#87969a" stroke="#11191d" stroke-width="5"/>
+              <!-- details -->
+              <path d="M46 83 L65 83" fill="none" stroke="#d8e5d9" stroke-width="4"/>
+              <rect x="187" y="82" width="12" height="9" rx="2" fill="#dce7c9" stroke="none"/>
+              <path d="M91 74 L185 74" fill="none" stroke="#3b4b50" stroke-width="4"/>
+            </g>
+            <ellipse cx="145" cy="145" rx="124" ry="8" fill="#17252b" opacity=".25"/>
           </svg>
         </div>
       </div>
@@ -94,14 +86,14 @@
   </section>
   <section class="promo-card" id="promoCard">
     <div class="promo-heading"><b>ПОПОЛНИТЬ СЧЁТ</b></div>
-    <a class="max-link" href="https://max.ru/u/f9LHodD0cOLneOcaWjEmFgBMwk43kHjgXIXkgV5Iri4Pyzd-kON9N1Y9ptg" target="_blank" rel="noopener noreferrer">ПОПРОСИТЬ ПРОМОКОД В MAX</a>
+    <a class="max-link" href="https://max.ru/u/f9LHodD0cOLneOcaWjEmFgBMwk43kHjgXIXkgV5Iri4Pyzd-kON9N1Y9ptg" target="_blank" rel="noopener noreferrer">ПОЛУЧИТЬ ПРОМОКОД БЕСПЛАТНО</a>
     <div class="promo-entry"><input id="promoInput" maxlength="80" placeholder="Промокод" aria-label="Промокод"><button class="promo-apply" id="promoApply">АКТИВИРОВАТЬ</button></div>
     <p class="promo-message" id="promoMessage" aria-live="polite"></p>
   </section>
   <footer>КАРЩИКИ · ИГРА ПО МОТИВАМ РАБОТЫ · РАЗРАБОТАЛ ТЁМА</footer>
 </main>
 </div>
-<div class="modal-backdrop" id="profileModal"><div class="modal"><button class="close" id="closeProfile">×</button><div class="eyebrow">ПРОФИЛЬ ИГРОКА</div><h2>Ваш профиль</h2><div class="avatar-preview" id="avatarPreview">🦺</div><label class="field-label" for="avatarFile">Загрузить фото из галереи</label><input id="avatarFile" type="file" accept="image/*"><label class="field-label" for="nicknameInput">Ваше имя</label><input id="nicknameInput" type="text" maxlength="22" placeholder="Введите имя"><button class="save-btn" id="saveProfile">СОХРАНИТЬ</button></div></div>
-<div class="modal-backdrop" id="withdrawModal"><div class="modal"><button class="close" id="closeWithdraw">×</button><div class="eyebrow">ВЫВОД СРЕДСТВ</div><h2>Вывод недоступен</h2><p class="modal-copy">Вывод игровой валюты не предусмотрен.</p><button class="save-btn" id="okWithdraw">ПОНЯТНО</button></div></div>
+<div class="modal-backdrop" id="profileModal"><div class="modal"><button class="close" id="closeProfile">×</button><div class="eyebrow">ПРОФИЛЬ ИГРОКА</div><h2>Ваш профиль</h2><div class="avatar-preview" id="avatarPreview">🦺</div><label class="upload-avatar-btn" for="avatarFile">ЗАГРУЗИТЬ АВАТАР</label><input id="avatarFile" class="avatar-file-input" type="file" accept="image/*"><label class="field-label" for="nicknameInput">Ваше имя</label><input id="nicknameInput" type="text" maxlength="22" placeholder="Введите имя"><button class="save-btn" id="saveProfile">СОХРАНИТЬ</button></div></div>
+<div class="modal-backdrop" id="withdrawModal"><div class="modal"><button class="close" id="closeWithdraw">×</button><div class="eyebrow">ВЫВОД СРЕДСТВ</div><h2>Вывод недоступен</h2><p class="modal-copy">Вывезти. Деньги не получится.</p><button class="save-btn" id="okWithdraw">ПОНЯТНО</button></div></div>
 <script src="game.js"></script>
 </body></html>

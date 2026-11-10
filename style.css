@@ -53,3 +53,13 @@
  .selected-note{margin-bottom:7px}
  .sound-btn{width:32px}
 }
+
+
+/* v5 refinements */
+.sound-btn svg{width:24px;height:24px}
+.avatar-file-input{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;padding:0!important;border:0!important}
+.upload-avatar-btn{display:flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;margin:12px 0 4px;border-radius:12px;background:linear-gradient(135deg,#b7e2ec,#78bfd2);border:1px solid #d7f4f2;color:#17313b;font-size:11px;font-weight:1000;letter-spacing:.7px;cursor:pointer}
+.fireworks{position:absolute;inset:0;z-index:8;pointer-events:none;overflow:hidden}
+.firework-bit{position:absolute;left:var(--x);top:var(--y);width:6px;height:10px;border-radius:2px;opacity:0;animation:firework-pop 1.25s ease-out forwards;box-shadow:0 0 9px currentColor}
+@keyframes firework-pop{0%{opacity:0;transform:translate(0,0) scale(.2) rotate(0)}12%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1) rotate(var(--rot))}}
+.withdraw-btn{font-size:10px;padding:10px 13px}
