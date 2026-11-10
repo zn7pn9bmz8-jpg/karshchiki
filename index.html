@@ -1,14 +1,7 @@
-<!doctype html>
-<html lang="ru"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#087dcc"><meta name="description" content="Интерактивная азбука и счёт с Синим трактором и его друзьями">
-<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><link rel="stylesheet" href="style.css">
-<title>Азбука Синего трактора</title></head>
-<body>
-<header><div class="top"><div class="logo" aria-hidden="true"><svg viewBox="0 0 180 120"><circle cx="48" cy="92" r="25" fill="#243849"/><circle cx="135" cy="98" r="17" fill="#243849"/><circle cx="48" cy="92" r="11" fill="#c8e3f2"/><circle cx="135" cy="98" r="8" fill="#c8e3f2"/><path d="M25 47h104q13 0 17 16l7 22H21z" fill="#087dcc"/><path d="M83 16h42v48H83z" rx="7" fill="#087dcc"/><path d="M91 24h27v25H91z" fill="#b8ecff"/><path d="M22 65h22v12H22z" fill="#ffe36a"/><path d="M145 70h14" stroke="#ffdf59" stroke-width="8" stroke-linecap="round"/><circle cx="109" cy="62" r="3" fill="#fff"/></svg></div><div><h1>Азбука Синего трактора</h1><p>Буквы, цифры и друзья из мультсериала</p></div></div><button id="sound" class="sound">🔊 Весёлый голос: вкл.</button></header>
-<main><nav class="tabs"><button class="tab active" data-tab="letters">🔤 Азбука</button><button class="tab" data-tab="numbers">🔢 Цифры</button><button class="tab" data-tab="friends">🚜 Герои и друзья</button></nav>
-<section id="letters" class="panel active"><div class="intro"><h2>Поехали учить буквы!</h2><p>Нажми на карточку — трактор назовёт букву и слово.</p></div><div id="alphabet" class="tiles"></div></section>
-<section id="numbers" class="panel"><div class="intro"><h2>Считаем вместе!</h2><p>Выбирай цифру, слушай и считай картинки.</p></div><div id="numbergrid" class="tiles numbers"></div></section>
-<section id="friends" class="panel"><div class="intro"><h2>Друзья и гости мультсериала</h2><p>Главные герои, машины и персонажи из разных приключений.</p></div><div id="friendgrid" class="friends"></div><p class="note">Список собран по описаниям мультсериала и названиям серий. В разных выпусках появляются разные гости; это не заявка на исчерпывающий официальный перечень.</p></section>
-<aside id="detail" class="detail" aria-live="polite"><div class="big">🚜</div><div><b>Привет! Я Синий трактор!</b><p>Выбирай букву, цифру или друга — и начнём!</p></div></aside>
-</main><footer>Учимся, играем и считаем вместе!</footer><script src="app.js"></script></body></html>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0788d2"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css"><title>Азбука Синего трактора</title></head><body>
+<header><img class="hero-art" src="assets/menu-art.png" alt="Синий трактор и друзья на ферме"><div class="hero-copy"><h1>Азбука Синего трактора</h1><p>Учимся буквам, цифрам и знакомимся с героями</p><button id="sound">🔊 Весёлый голос: включён</button></div></header>
+<main><nav><button class="tab active" data-tab="letters">Буквы</button><button class="tab" data-tab="numbers">Цифры</button><button class="tab" data-tab="cast">Персонажи</button></nav>
+<section id="letters" class="panel active"><h2>Выбери букву</h2><div id="alphabet" class="alphabet"></div></section>
+<section id="numbers" class="panel"><h2>Считаем от 1 до 10</h2><div id="numbergrid" class="numbers"></div></section>
+<section id="cast" class="panel"><h2>Мир Синего трактора</h2><p class="sub">Персонажи, машины и гости из разных серий. Нажми на карточку, чтобы услышать название.</p><div id="characters" class="cast"></div><p class="source-note">Каталог составлен по сюжетам и названиям серий; в мультсериале много разовых животных и машин, поэтому это расширенная подборка, а не обещание полного перечня каждого эпизодического героя.</p></section>
+<aside id="info"><img src="assets/blue-tractor.jpg" alt="Синий трактор"><div><b>Привет! Я Синий трактор!</b><p>Нажимай на буквы, цифры и картинки друзей.</p></div></aside></main><footer>Интерактивная азбука · Для телефона и компьютера</footer><script src="app.js"></script></body></html>
