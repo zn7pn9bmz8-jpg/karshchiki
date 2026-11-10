@@ -1,32 +1,63 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#111b27"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-192.png"><link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111b27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Карщики — Цеха">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
 <title>Карщики — Цеха</title>
 </head>
 <body>
 <div class="app-shell">
 <header class="topbar">
-  <button class="profile-avatar" id="profileBtn" aria-label="Изменить аватар"><span id="avatarMini">🦺</span></button>
-  <div class="top-actions"><button class="withdraw-btn" id="withdrawBtn">ВЫВЕСТИ ДЕНЬГИ</button><button class="sound-btn" id="soundBtn" aria-label="Звук включён">♫</button></div>
+  <div class="profile-wrap">
+    <button class="profile-avatar" id="profileBtn" aria-label="Изменить профиль"><span id="avatarMini">🦺</span></button>
+    <button class="profile-name" id="profileNameBtn" aria-label="Изменить имя"><span id="nicknameMini">Игрок</span></button>
+  </div>
+  <div class="top-actions">
+    <button class="sound-btn" id="soundBtn" aria-label="Звук включён" title="Звук">♫</button>
+    <button class="withdraw-btn" id="withdrawBtn">ВЫВЕСТИ ДЕНЬГИ</button>
+  </div>
 </header>
 <main>
   <section class="hero">
     <div class="hero-copy"><div class="eyebrow">КАРЩИКИ · ЦЕХА</div><h1>Куда поедет<br><em>погрузчик?</em></h1><p>Выбери цех, куда доедет погрузчик.</p></div>
-    <div class="score-card"><span>ТВОЙ СЧЁТ</span><strong id="score">68 000</strong><small>рублей</small><button class="promo-open" id="promoOpen">ПОПОЛНИТЬ ПО ПРОМОКОДУ</button></div>
+    <div class="score-card"><span>ТВОЙ СЧЁТ</span><div class="score-line"><strong id="score">68 000</strong><small>рублей</small></div></div>
   </section>
   <section class="yard-card">
     <div class="yard-head"><div><span class="eyebrow">ПУНКТ НАЗНАЧЕНИЯ</span><h2>Выберите цех</h2></div><div class="round-pill" id="roundLabel">ЗАЕЗД 01</div></div>
     <div class="yard" id="yard">
       <div class="skyline"><span class="cloud c1"></span><span class="cloud c2"></span><span class="sun"></span></div>
+      <div class="arrival-badge" id="arrivalBadge">ПОГРУЗЧИК ПРИБЫЛ</div>
       <div class="warehouse-row">
         <div class="warehouse" data-warehouse="0"><div class="roof"></div><div class="door"><span>01</span></div><label>КАРАНТИН</label></div>
         <div class="warehouse" data-warehouse="1"><div class="roof"></div><div class="door"><span>02</span></div><label>ПОЛТОРАШКА</label></div>
         <div class="warehouse" data-warehouse="2"><div class="roof"></div><div class="door"><span>03</span></div><label>СИМ 400</label></div>
       </div>
-      <div class="ground"><div class="lane"></div><div class="forklift" id="forklift"><div class="fork-mast"></div><div class="fork-body"><div class="cab"><i></i></div><div class="counterweight"></div><div class="wheel w1"></div><div class="wheel w2"></div><div class="fork"></div></div></div></div>
+      <div class="ground"><div class="lane"></div>
+        <div class="forklift" id="forklift" aria-label="Погрузчик">
+          <svg viewBox="0 0 180 112" role="img" aria-hidden="true">
+            <defs><linearGradient id="redPaint" x1="0" x2="1"><stop stop-color="#a91f29"/><stop offset=".48" stop-color="#e23a36"/><stop offset="1" stop-color="#781821"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bde8ee"/><stop offset="1" stop-color="#537e8d"/></linearGradient></defs>
+            <ellipse cx="91" cy="100" rx="78" ry="7" fill="#263a3d" opacity=".35"/>
+            <rect x="18" y="13" width="8" height="78" rx="2" fill="#202a30"/><rect x="30" y="13" width="5" height="78" rx="2" fill="#414e55"/><path d="M20 18H57" stroke="#202a30" stroke-width="5"/>
+            <path d="M20 86H70V91H20Z" fill="#252d31"/><path d="M20 82H61V87H20Z" fill="#e2e6e3"/>
+            <path d="M48 53H135Q146 53 150 65L155 87H49Z" fill="url(#redPaint)" stroke="#3a2427" stroke-width="3"/>
+            <path d="M77 50V20H115L132 52Z" fill="#252d32" stroke="#151c20" stroke-width="4"/>
+            <path d="M83 25H110L121 48H83Z" fill="url(#glass)" stroke="#10191d" stroke-width="2"/>
+            <path d="M77 20H118" stroke="#151c20" stroke-width="6" stroke-linecap="round"/><path d="M77 20V54" stroke="#151c20" stroke-width="5"/>
+            <path d="M51 57H72V80H51Z" fill="#e34a3c"/><rect x="133" y="61" width="14" height="20" rx="3" fill="#262e32"/><rect x="144" y="68" width="8" height="8" rx="2" fill="#f4d88b"/>
+            <path d="M90 53L104 53" stroke="#f5c8a1" stroke-width="3"/><path d="M57 88H151" stroke="#252b30" stroke-width="4"/>
+            <circle cx="72" cy="89" r="14" fill="#1b2227" stroke="#59656a" stroke-width="4"/><circle cx="72" cy="89" r="5" fill="#a9b3b3"/><circle cx="133" cy="89" r="14" fill="#1b2227" stroke="#59656a" stroke-width="4"/><circle cx="133" cy="89" r="5" fill="#a9b3b3"/>
+            <path d="M25 88H7V94H29" fill="none" stroke="#252d31" stroke-width="5" stroke-linecap="square"/>
+            <rect x="103" y="57" width="13" height="5" rx="2" fill="#202a30"/><path d="M112 64L121 64" stroke="#f0d6a2" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
       <div class="yard-status" id="yardStatus">ПОГРУЗЧИК ОЖИДАЕТ ЗАДАНИЕ</div>
     </div>
     <div class="choice-grid" id="choices">
@@ -38,11 +69,16 @@
     <div class="result" id="result" aria-live="polite"></div>
   </section>
   <section class="how-card"><b>КАК ИГРАТЬ</b><p>Выберите один из трёх цехов. За точное попадание — плюс 1 000 рублей. За неправильный выбор — минус 100 рублей.</p></section>
+  <section class="promo-card" id="promoCard">
+    <div class="promo-heading"><b>ПОПОЛНИТЬ СЧЁТ</b><span>+5 000 ₽</span></div>
+    <a class="max-link" href="https://max.ru/u/f9LHodD0cOLneOcaWjEmFgBMwk43kHjgXIXkgV5Iri4Pyzd-kON9N1Y9ptg" target="_blank" rel="noopener noreferrer">ПОПРОСИТЬ ПРОМОКОД В MAX</a>
+    <div class="promo-entry"><input id="promoInput" maxlength="80" placeholder="Промокод" aria-label="Промокод"><button class="promo-apply" id="promoApply">АКТИВИРОВАТЬ</button></div>
+    <p class="promo-message" id="promoMessage" aria-live="polite"></p>
+  </section>
   <footer>КАРЩИКИ · ИГРА ПО МОТИВАМ РАБОТЫ · РАЗРАБОТАЛ ТЁМА</footer>
 </main>
 </div>
-<div class="modal-backdrop" id="profileModal"><div class="modal"><button class="close" id="closeProfile">×</button><div class="eyebrow">АВАТАР</div><h2>Выбрать аватар</h2><div class="avatar-preview" id="avatarPreview">🦺</div><label class="field-label" for="avatarFile">Загрузить фото из галереи</label><input id="avatarFile" type="file" accept="image/*"><button class="save-btn" id="saveProfile">СОХРАНИТЬ</button></div></div>
+<div class="modal-backdrop" id="profileModal"><div class="modal"><button class="close" id="closeProfile">×</button><div class="eyebrow">ПРОФИЛЬ ИГРОКА</div><h2>Ваш профиль</h2><div class="avatar-preview" id="avatarPreview">🦺</div><label class="field-label" for="avatarFile">Загрузить фото из галереи</label><input id="avatarFile" type="file" accept="image/*"><label class="field-label" for="nicknameInput">Ваше имя</label><input id="nicknameInput" type="text" maxlength="22" placeholder="Введите имя"><button class="save-btn" id="saveProfile">СОХРАНИТЬ</button></div></div>
 <div class="modal-backdrop" id="withdrawModal"><div class="modal"><button class="close" id="closeWithdraw">×</button><div class="eyebrow">ВЫВОД СРЕДСТВ</div><h2>Вывод недоступен</h2><p class="modal-copy">Вывод игровой валюты не предусмотрен.</p><button class="save-btn" id="okWithdraw">ПОНЯТНО</button></div></div>
-<div class="modal-backdrop" id="promoModal"><div class="modal"><button class="close" id="closePromo">×</button><div class="eyebrow">ИГРОВОЙ ПРОМОКОД</div><h2>Пополнение счёта</h2><a class="max-link" href="https://max.ru/u/f9LHodD0cOLneOcaWjEmFgBMwk43kHjgXIXkgV5Iri4Pyzd-kON9N1Y9ptg" target="_blank" rel="noopener noreferrer">ПОЛУЧИТЬ ПРОМОКОД В MAX</a><label class="field-label" for="promoInput">Введите промокод</label><input id="promoInput" maxlength="80" placeholder="Любой текст"><button class="save-btn" id="promoApply">АКТИВИРОВАТЬ · +5 000 ₽</button><p class="promo-message" id="promoMessage" aria-live="polite"></p></div></div>
 <script src="game.js"></script>
 </body></html>
