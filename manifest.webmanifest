@@ -1,9 +1,1 @@
-{
-  "name": "Тракторная азбука",
-  "short_name": "Азбука",
-  "start_url": "./",
-  "display": "standalone",
-  "orientation": "any",
-  "background_color": "#70c94b",
-  "theme_color": "#168ed0"
-}
+{"name":"Тракторная азбука","short_name":"Азбука","start_url":"./","display":"standalone","background_color":"#55c8f4","theme_color":"#55c8f4","orientation":"any"}
